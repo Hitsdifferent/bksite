@@ -9,6 +9,7 @@ import DrentheLogo from "@/assets/logos/drenthecollege.svg";
 
 export default function Home() {
   return (
+    <>
     <div className="container-fluid">
 
       <section className="container mx-auto">
@@ -135,5 +136,6 @@ export default function Home() {
       </section>
 
     </div>
+    </>
   );
 }
