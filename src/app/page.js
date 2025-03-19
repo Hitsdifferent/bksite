@@ -18,7 +18,7 @@ export default function Home() {
             <h1 className="text-8xl leading-[1.2] font-semibold text-black">Jouw verhaal.<br/>Onze verbeelding.</h1>
           </div>
           <div className="col-start-9 col-span-4 grid content-between">
-            <p className="mt-4 font-medium text-lg">Met oog voor detail maken wij professionele video’s voor overheidsinstanties, commerciële organisaties en particulieren. Bij elke klus werken we als een echte beeldkameraad nauw met je samen. </p>
+            <p className="mt-4 font-medium text-lg">Met oog voor detail maken wij professionele video&apos;s voor overheidsinstanties, commerciële organisaties en particulieren. Bij elke klus werken we als een echte beeldkameraad nauw met je samen. </p>
             <Link href="/services">
               <div className="text-white font-medium uppercase"><span className="px-[30px] py-[10px] bg-[#262626]">Hoe mogen we jouw in beeld brengen?</span></div>
             </Link>
@@ -61,7 +61,7 @@ export default function Home() {
             <div className="mt-[50px]">
               <Link href="/services">
                 <div className="text-2xl font-medium border-t-2 border-black">
-                  <p className="py-[25px] transition duration-300 ease-in-out hover:translate-x-4 cursor-pointer">Wervings-/marketingvideo's</p>
+                  <p className="py-[25px] transition duration-300 ease-in-out hover:translate-x-4 cursor-pointer">Wervings-/marketingvideo&apos;s</p>
                 </div>
               </Link>
               <Link href="/services">
@@ -96,7 +96,7 @@ export default function Home() {
       <section className="container-fluid bg-[#262626] py-[100px]">
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-5 text-black grid content-between pr-8 text-white">
+            <div className="col-span-5 grid content-between pr-8 text-white">
               <div className="flex flex-col space-y-8">
                 <h1 className="text-3xl leading-[1.2] font-semibold">Over ons</h1>
                 <p className="text-base leading-[1.5] font-regular">Al drie jaar staan we met passie achter de lens voor elk verhaal. Wat met een opdracht tijdens een studieproject begon, is uitgegroeid tot een videobedrijf met tientallen opdrachtgevers. Het leukste aan ons werk? Iedereen heeft weer een ander verhaal.</p>
