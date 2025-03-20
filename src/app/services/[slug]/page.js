@@ -1,14 +1,45 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation"; // Haal de slug op uit de URL
+import { client } from "@/lib/sanity"; // Sanity client
+
 import Method from "@/components/Method";
 import Belofteswhite from "@/components/Belofteswhite";
 import Link from "next/link";
 
-export default function DienstenDetail({ params }) {
+async function getService(slug) {
+    const query = `*[_type == 'services' && slug.current == '${slug}'] {
+        "currentSlug": slug.current,
+        title,
+        smallDescription
+    }[0]`;
+  
+    try {
+      const data = await client.fetch(query, { slug });
+      return data;
+    } catch (error) {
+      console.error("Fout bij ophalen van service:", error);
+      return null;
+    }
+  }
 
-    const slugToName = {
-        "wervingsmarketingvideos": "Wervings-/marketingvideo's",
-      };
+export default function DienstenDetail() {
 
-    const name = slugToName[params.slug] || "Service Not Found";
+    const { slug } = useParams();
+    const [services, setService] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+          if (slug) {
+            const data = await getService(slug);
+            // console.log("Fetched service:", data); // Voeg log toe om de structuur van de opgehaalde data te inspecteren
+            setService(data);
+          }
+        }
+      
+        fetchData();
+      }, [slug]);
 
     return (
         <>
@@ -16,10 +47,10 @@ export default function DienstenDetail({ params }) {
             <section className="container mx-auto">
                 <div className="grid grid-cols-12 gap-4 my-[100px]">
                     <div className="col-span-7">
-                        <h2 className="text-6xl leading-[1.2] font-semibold text-black">{name}</h2>
+                        <h2 className="text-6xl leading-[1.2] font-semibold text-black">{services.title}</h2>
                     </div>
                     <div className="col-start-8 col-span-5">
-                        <p className="mt-4 font-medium text-lg">Bij elke klus werken we als een echte beeldkameraad nauw met je samen. Hoe mogen we jou in beeld brengen?</p>
+                        <p className="mt-4 font-medium text-lg">{services.smallDescription}</p>
                     </div>
                 </div>
 

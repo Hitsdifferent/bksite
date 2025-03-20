@@ -20,7 +20,7 @@ export default function Navbar() {
       <nav className="bg-white p-4 text-black border-b-2 sticky top-0 border-[#D5D5D5] z-10">        
         <div className="container mx-auto flex justify-between content-center">
           <div className="">
-
+            <p className="text-2xl font-bold">Logo</p>
           </div>
           <ul className="flex text-sm gap-8 uppercase font-medium">
             {[

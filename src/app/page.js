@@ -1,6 +1,11 @@
-import Beloftes from "@/components/Beloftes";
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+import Beloftes from "@/components/Beloftes";
+
 import NoorderpoortLogo from "@/assets/logos/Noorderpoort.svg";
 import HanzeLogo from "@/assets/logos/Hanze.svg";
 import PatynaLogo from "@/assets/logos/patyna.svg";
@@ -9,7 +14,20 @@ import DrentheLogo from "@/assets/logos/drenthecollege.svg";
 
 import RightUp from "@/assets/icons/ArrowRightUp.svg";
 
+import { getSanityAuthor } from "../lib/sanity";
+
 export default function Home() {
+
+  const [author, setAuthor] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getSanityAuthor();
+      // console.log("Fetched service:", data);
+      setAuthor(data);
+    }
+    fetchData();
+  }, []);
 
   const services = [
     { name: "Wervings-/marketingvideo's", slug: "wervingsmarketingvideos" },
@@ -108,12 +126,18 @@ export default function Home() {
             </div>
             <div className="col-span-5 col-start-8">
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-blue-600 aspect-square rounded-2xl">
-
-                </div>
-                <div className="bg-blue-600 aspect-square rounded-2xl">
-
-                </div>
+                
+                {author.length > 0 ? (
+                  author.map((author, index) => (
+                    <div className="bg-blue-600 aspect-square rounded-2xl">
+                      <div>
+                        <p key={index}>{author.name}</p>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>Laden...</p>
+                )}
               </div>
             </div>
           </div>

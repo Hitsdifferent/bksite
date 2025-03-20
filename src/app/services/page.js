@@ -1,31 +1,41 @@
 "use client";
-import Beloftes from "@/components/Beloftes";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
+import { client } from "@/lib/sanity";
 import RightUp from "@/assets/icons/ArrowRightUp.svg";
+
+async function getData() {
+  const query = `*[_type == 'services'] {
+    title,
+    smallDescription,
+    "currentSlug": slug.current
+  }`;
+
+  try {
+    const data = await client.fetch(query); // Haal de data op van Sanity
+    return data;
+    
+  } catch (error) {
+    console.error("Fout bij het ophalen van data van Sanity:", error); // Log de fout als het niet lukt
+    throw error;
+  }
+}
 
 export default function Diensten() {
   const router = useRouter();
+  
+  const [services, setServices] = useState([]); // State om de data op te slaan
 
-  const services = [
-    { name: "Wervings-/marketingvideo's", slug: "wervingsmarketingvideos" },
-    { name: "Documentaires", slug: "documentaires" },
-    { name: "Aftermovies", slug: "aftermovies" },
-    { name: "Livestreams", slug: "livestreams" },
-    { name: "Podcasts", slug: "podcasts" }
-  ];
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getData();
+      // console.log("Opgehaalde data:", data);
+      setServices(data); // Update de state met de opgehaalde data
+    }
 
-  // useEffect(() => {
-  //   const handleRouteChange = () => {
-  //     window.scrollTo(0, 0);
-  //   };
-
-  //   router.events.on("routeChangeComplete", handleRouteChange);
-  //   return () => {
-  //     router.events.off("routeChangeComplete", handleRouteChange);
-  //   };
-  // }, [router]);
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -48,13 +58,18 @@ export default function Diensten() {
               <h2 div className="text-3xl font-medium">Je kan Beeldkameraden gebruiken bij:</h2>
               <ul className="mt-[100px]">
                 {services.map((service) => (
-                  <li key={service.slug}>
-                  <Link href={`/services/${service.slug}`}>
-                      <div className="flex flex-row justify-between border-t-2 border-white group">
-                        <p className="text-4xl font-medium py-[25px] transition duration-300 ease-in-out group-hover:translate-x-4 cursor-pointer">{service.name}</p>
-                        <span className="p-[24px]">
-                          <RightUp className="w-[24px] h-[24px]" />
-                        </span>
+                  <li key={service.currentSlug}>
+                    <Link href={`/services/${service.currentSlug}`}>
+                      <div className="flex flex-col justify-between border-t-2 border-white group">
+                        <div className="flex flex-row justify-between">
+                          <p className="text-4xl font-medium py-[25px] transition duration-300 ease-in-out group-hover:translate-x-4 cursor-pointer">{service.title}</p>
+                          <span className="p-[24px]">
+                            <RightUp className="w-[24px] h-[24px] grayscale" />
+                          </span>
+                        </div>
+                        <div className="flex w-2/3 pb-[25px]">
+                          <p className="text-base font-regular">{service.smallDescription}</p>
+                        </div>
                       </div>
                     </Link>
                   </li>
