@@ -127,17 +127,17 @@ export default function Home() {
             <div className="col-span-5 col-start-8">
               <div className="grid grid-cols-2 gap-4">
                 
-                {author.length > 0 ? (
-                  author.map((author, index) => (
-                    <div className="bg-blue-600 aspect-square rounded-2xl">
-                      <div>
-                        <p key={index}>{author.name}</p>
-                      </div>
+              {author.length > 0 ? (
+                author.map((author, index) => (
+                  <div key={index} className="bg-blue-600 aspect-square rounded-2xl">
+                    <div>
+                      <p>{author.name}</p>
                     </div>
-                  ))
-                ) : (
-                  <p>Laden...</p>
-                )}
+                  </div>
+                ))
+              ) : (
+                <p>Laden...</p>
+              )}
               </div>
             </div>
           </div>
