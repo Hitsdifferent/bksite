@@ -5,11 +5,11 @@ import BkTodo from "@/assets/icons/bk_todo.svg";
 
 export default function Beloftes() {
   return (
-    <section className="container-fluid bg-[#262626] py-[100px]">
+    <section className="container-fluid bg-white py-[100px]">
         <div className="container mx-auto">
             <div className="grid grid-cols-12 gap-4 space-y-8 mb-[100px]">
                 <div className="col-span-8">
-                    <p className="text-3xl font-medium leading-[1.5] text-white">Goede samenwerking geeft het beste beeld. Onze verbeelding begint namelijk bij jouw input. Dankzij onze 3 Beeldbeloftes werk je zoveel mogelijk mee aan het resultaat, zonder dat het je agenda opslokt.</p>
+                    <p className="text-3xl leading-[1.5] font-medium text-black">Goede samenwerking geeft het beste beeld. Onze verbeelding begint namelijk bij jouw input. Dankzij onze 3 Beeldbeloftes werk je zoveel mogelijk mee aan het resultaat, zonder dat het je agenda opslokt.</p>
                 </div>
             </div>
             <div className="grid grid-cols-12 gap-4 space-y-8">

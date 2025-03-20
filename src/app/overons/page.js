@@ -15,8 +15,7 @@ export default function Over() {
                 <h2 className="text-6xl leading-[1.2] font-semibold text-black">Wij zijn Beeldkameraden</h2>
             </div>
             <div className="col-start-8 col-span-5">
-                <p className="mt-4 font-medium text-lg">Wil je (organisatie) een product of dienst beter in beeld brengen? Of organiseer je een evenement waarvoor je bezoekers wilt enthousiasmeren? Vanuit onze kennis op het gebied van marketing en communicatie maken wij wervings- en marketingvideo’s met overtuigende storytelling.</p>
-                <p className="mt-4 font-medium text-lg">Bij Beeldkameraden geloven we daarbij in de kracht van samenwerking. Jij kent je product, organisatie en doelgroepen het beste. Wij weten hoe je jouw verhaal op een visueel aantrekkelijke manier presenteert. Samen maken we video die er niet alleen goed uitziet, maar ook z’n doel behaalt.</p>
+                <p className="mt-4 font-medium text-lg">twee vrienden die dol zijn op het filmvak. Wat in 2020 begon met een gezamenlijk studieproject, groeide al snel uit tot een videobedrijf met vele opdrachtgevers. Nu werken we dagelijks aan de meest uiteenlopende producties. Van bedrijfsfilms, livestreams tot complete documentaires.</p>
             </div>
             </div>
         </section>
@@ -24,8 +23,41 @@ export default function Over() {
         <section className="container-fluid mx-auto bg-[#262626] py-[100px] mt-[50px]">
             <div className="container mx-auto">
             <div className="grid grid-cols-12 gap-4 text-white">
-                <div className="col-span-12">
-                <h2 div className="text-3xl font-medium">Ons bedrijf</h2>
+                <div className="col-span-6">                    
+                    <p div className="text-3xl font-medium leading-[1.5]">Ons bedrijf is geboren uit het plezier dat we halen uit techniek en creativiteit. Je krijgt bij ons dan ook de combinatie van een inhoudelijke vakidioot met liefde voor de camera en een communicatiespecialist die mensen weet te boeien. Soms flinke tegenpolen, maar beide altijd uit op het boeien van jouw kijker.</p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section className="container-fluid mx-auto py-[100px]">
+            <div className="container mx-auto">
+            <div className="grid grid-cols-12 gap-4 text-black">
+                <div className="col-span-6 col-start-7">                    
+                    <p div className="text-2xl font-medium leading-[1.5]">We voeren de regie vanuit ons kantoor in de Papiermolen (Groningen). Een gezellige omgeving met andere creatieven die steeds weer inspireert. En dat is ook precies waar we van houden: serieus over het werk, ook lekker makkelijk in contact.</p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section className="container-fluid bg-[#262626] py-[100px]">
+            <div className="container mx-auto">
+            <div className="grid grid-cols-12 gap-4">
+                <div className="col-span-4 grid content-between pr-8 text-white">
+                    <div className="flex flex-col space-y-8">
+                        {/* <h1 className="text-3xl leading-[1.2] font-semibold">Over ons</h1> */}
+                        <p className="text-2xl leading-[1.5] font-medium">Het team</p>
+                    </div>
+                </div>
+                <div className="col-span-8">
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-blue-600 aspect-square rounded-2xl">
+
+                    </div>
+                    <div className="bg-blue-600 aspect-square rounded-2xl">
+
+                    </div>
+                </div>
                 </div>
             </div>
             </div>

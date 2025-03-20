@@ -7,12 +7,23 @@ import PatynaLogo from "@/assets/logos/patyna.svg";
 import DcterraLogo from "@/assets/logos/dcterra.svg";
 import DrentheLogo from "@/assets/logos/drenthecollege.svg";
 
+import RightUp from "@/assets/icons/ArrowRightUp.svg";
+
 export default function Home() {
+
+  const services = [
+    { name: "Wervings-/marketingvideo's", slug: "wervingsmarketingvideos" },
+    { name: "Documentaires", slug: "documentaires" },
+    { name: "Aftermovies", slug: "aftermovies" },
+    { name: "Livestreams", slug: "livestreams" },
+    { name: "Podcasts", slug: "podcasts" }
+  ];
+
   return (
     <>
     <div className="container-fluid">
 
-      <section className="container mx-auto">
+      <section className="container mx-auto mb-[100px]">
         <div className="grid grid-cols-12 gap-4 mt-[100px]">
           <div className="col-span-7">
             <h1 className="text-8xl leading-[1.2] font-semibold text-black">Jouw verhaal.<br/>Onze verbeelding.</h1>
@@ -55,35 +66,23 @@ export default function Home() {
 
       <section className="container mx-auto">
         <div className="grid grid-cols-12 gap-4 my-[100px]">
-          <div className="col-span-6 text-black space-y-8 pr-8">
-            <h1 className="text-3xl leading-[1.2] font-semibold">Onze diensten</h1>
-            <p className="text-base leading-[1.5] font-regular">Bij elke klus werken we als een echte beeldkameraad nauw met je samen. Hoe mogen we jou in beeld brengen? Je kan Beeldkameraden gebruiken bij:</p>
-            <div className="mt-[50px]">
-              <Link href="/services">
-                <div className="text-2xl font-medium border-t-2 border-black">
-                  <p className="py-[25px] transition duration-300 ease-in-out hover:translate-x-4 cursor-pointer">Wervings-/marketingvideo&apos;s</p>
-                </div>
-              </Link>
-              <Link href="/services">
-                <div className="text-2xl font-medium border-t-2 border-black">
-                  <p className="py-[25px] transition duration-300 ease-in-out hover:translate-x-4 cursor-pointer">Documentaires</p>
-                </div>
-              </Link>
-              <Link href="/services">
-                <div className="text-2xl font-medium border-t-2 border-black">
-                  <p className="py-[25px] transition duration-300 ease-in-out hover:translate-x-4 cursor-pointer">Aftermovies</p>
-                </div>
-              </Link>
-              <Link href="/services">
-                <div className="text-2xl font-medium border-t-2 border-black">
-                  <p className="py-[25px] transition duration-300 ease-in-out hover:translate-x-4 cursor-pointer">Livestreams</p>
-                </div>
-              </Link>
-              <Link href="/services">
-                <div className="text-2xl font-medium border-t-2 border-black">
-                  <p className="py-[25px] transition duration-300 ease-in-out hover:translate-x-4 cursor-pointer">Podcasts</p>
-                </div>
-              </Link>
+          <div className="col-span-6 text-black space-y-8 ">
+            <p className="text-3xl leading-[1.5] font-medium">Bij elke klus werken we als een echte beeldkameraad nauw met je samen. Hoe mogen we jou in beeld brengen? Je kan Beeldkameraden gebruiken bij:</p>
+            <div className="mt-[50px]">          
+              <ul>
+                {services.map((service) => (
+                  <li key={service.slug}>
+                  <Link href={`/services/${service.slug}`}>
+                      <div className="flex flex-row justify-between border-t-2 border-black group">
+                        <p className="text-2xl font-medium py-[25px] transition duration-300 ease-in-out group-hover:translate-x-4 cursor-pointer">{service.name}</p>
+                        <span className="p-[24px]">
+                          <RightUp className="w-[24px] h-[24px] grayscale" />
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
           <div className="col-span-5 col-start-8">
@@ -96,10 +95,10 @@ export default function Home() {
       <section className="container-fluid bg-[#262626] py-[100px]">
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-5 grid content-between pr-8 text-white">
+            <div className="col-span-6 grid content-between pr-8 text-white">
               <div className="flex flex-col space-y-8">
-                <h1 className="text-3xl leading-[1.2] font-semibold">Over ons</h1>
-                <p className="text-base leading-[1.5] font-regular">Al drie jaar staan we met passie achter de lens voor elk verhaal. Wat met een opdracht tijdens een studieproject begon, is uitgegroeid tot een videobedrijf met tientallen opdrachtgevers. Het leukste aan ons werk? Iedereen heeft weer een ander verhaal.</p>
+                {/* <h1 className="text-3xl leading-[1.2] font-semibold">Over ons</h1> */}
+                <p className="text-2xl leading-[1.5] font-medium">Al drie jaar staan we met passie achter de lens voor elk verhaal. Wat met een opdracht tijdens een studieproject begon, is uitgegroeid tot een videobedrijf met tientallen opdrachtgevers. Het leukste aan ons werk? Iedereen heeft weer een ander verhaal.</p>
               </div>
               <div className="flex flex-row">
                 <Link href="/overons">
@@ -107,7 +106,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="col-span-7 col-start-6">
+            <div className="col-span-5 col-start-8">
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-blue-600 aspect-square rounded-2xl">
 

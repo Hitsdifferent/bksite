@@ -3,8 +3,18 @@ import Beloftes from "@/components/Beloftes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+import RightUp from "@/assets/icons/ArrowRightUp.svg";
+
 export default function Diensten() {
   const router = useRouter();
+
+  const services = [
+    { name: "Wervings-/marketingvideo's", slug: "wervingsmarketingvideos" },
+    { name: "Documentaires", slug: "documentaires" },
+    { name: "Aftermovies", slug: "aftermovies" },
+    { name: "Livestreams", slug: "livestreams" },
+    { name: "Podcasts", slug: "podcasts" }
+  ];
 
   // useEffect(() => {
   //   const handleRouteChange = () => {
@@ -36,6 +46,20 @@ export default function Diensten() {
           <div className="grid grid-cols-12 gap-4 text-white">
             <div className="col-span-12">
               <h2 div className="text-3xl font-medium">Je kan Beeldkameraden gebruiken bij:</h2>
+              <ul className="mt-[100px]">
+                {services.map((service) => (
+                  <li key={service.slug}>
+                  <Link href={`/services/${service.slug}`}>
+                      <div className="flex flex-row justify-between border-t-2 border-white group">
+                        <p className="text-4xl font-medium py-[25px] transition duration-300 ease-in-out group-hover:translate-x-4 cursor-pointer">{service.name}</p>
+                        <span className="p-[24px]">
+                          <RightUp className="w-[24px] h-[24px]" />
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

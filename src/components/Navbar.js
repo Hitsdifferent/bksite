@@ -17,7 +17,7 @@ export default function Navbar() {
           <Slate className="w-full h-auto text-black" />
         </nav>
       )}
-      <nav className="bg-white p-4 text-black border-b-2 sticky top-0 border-[#D5D5D5]">        
+      <nav className="bg-white p-4 text-black border-b-2 sticky top-0 border-[#D5D5D5] z-10">        
         <div className="container mx-auto flex justify-between content-center">
           <div className="">
 
@@ -34,7 +34,7 @@ export default function Navbar() {
                   href={path}
                   className={"flex items-center px-3 py-2"}
                 >
-                  {pathname === path && <span className="w-3 h-3 bg-red-500 rounded-full mr-2"></span>}
+                  {pathname === path && <span className="w-3 h-3 bg-red-500 mr-2"></span>}
                   {name}
                 </Link>
               </li>
