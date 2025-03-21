@@ -3,6 +3,8 @@ import Beloftes from "@/components/Beloftes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+import AuthorFetcher from '@/components/AuthorFetcher';
+
 export default function Over() {
     const router = useRouter();
 
@@ -42,26 +44,36 @@ export default function Over() {
 
         <section className="container-fluid bg-[#262626] py-[100px]">
             <div className="container mx-auto">
-            <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-4 grid content-between pr-8 text-white">
-                    <div className="flex flex-col space-y-8">
-                        {/* <h1 className="text-3xl leading-[1.2] font-semibold">Over ons</h1> */}
-                        <p className="text-2xl leading-[1.5] font-medium">Het team</p>
-                    </div>
+            <div className="grid grid-cols-12 gap-4 space-y-8">
+                <div className="col-span-6 grid content-between pr-8 text-white">
+                <div className="flex flex-col space-y-8">
+                    {/* <h1 className="text-3xl leading-[1.2] font-semibold">Over ons</h1> */}
+                    <p className="text-2xl leading-[1.5] font-medium">Al drie jaar staan we met passie achter de lens voor elk verhaal. Wat met een opdracht tijdens een studieproject begon, is uitgegroeid tot een videobedrijf met tientallen opdrachtgevers. Het leukste aan ons werk? Iedereen heeft weer een ander verhaal.</p>
                 </div>
-                <div className="col-span-8">
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-blue-600 aspect-square rounded-2xl">
-
-                    </div>
-                    <div className="bg-blue-600 aspect-square rounded-2xl">
-
-                    </div>
-                </div>
-                </div>
+                </div>            
+                <AuthorFetcher>
+                {(author) => (
+                    author.length > 0 ? (
+                    author.map((authorItem, index) => (
+                        <div className="col-span-3" key={index} >
+                        <div className="bg-blue-600 aspect-retro rounded-xl">
+                            
+                        </div>
+                        <div className="text-white font-medium text-lg p-4 border-b-1">
+                            <p>{authorItem.name}</p>
+                        </div>
+                        </div>
+                    ))
+                    ) : (
+                    <p>Laden...</p>
+                    )
+                )}
+                </AuthorFetcher>                       
             </div>
             </div>
         </section>
+
+        
 
         <section className="container mx-auto pt-[100px] pb-[250px]">
             <div className="grid grid-cols-12 gap-4">

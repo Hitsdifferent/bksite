@@ -1,0 +1,27 @@
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+
+
+export default function Over() {
+    const router = useRouter();
+
+  return (
+    <div className="container-fluid">
+        
+        <section className="container mx-auto">
+            <div className="grid grid-cols-12 gap-4 my-[100px]">
+            <div className="col-span-7">
+                <h2 className="text-6xl leading-[1.2] font-semibold text-black">Het lijkt ons leuk om je te leren kennen en jouw verhaal te horen.</h2>
+            </div>
+            <div className="col-start-9 col-span-4">
+                <p className="mt-4 font-medium text-lg">Je bent altijd welkom voor een gesprek. Telefonisch, of bij ons op kantoor. </p>
+            </div>
+            </div>
+        </section>       
+
+    </div>
+  );
+}

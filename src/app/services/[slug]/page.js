@@ -10,9 +10,10 @@ import Link from "next/link";
 
 async function getService(slug) {
     const query = `*[_type == 'services' && slug.current == '${slug}'] {
-        "currentSlug": slug.current,
         title,
-        smallDescription
+        "texts": content[].children[].text,
+        smallDescription,
+        "currentSlug": slug.current,
     }[0]`;
   
     try {
@@ -50,7 +51,9 @@ export default function DienstenDetail() {
                         <h2 className="text-6xl leading-[1.2] font-semibold text-black">{services.title}</h2>
                     </div>
                     <div className="col-start-8 col-span-5">
-                        <p className="mt-4 font-medium text-lg">{services.smallDescription}</p>
+                        {services?.texts?.map((t, i) => (
+                            <p className="mt-4 font-medium text-lg" key={i}>{t}</p>
+                        ))}
                     </div>
                 </div>
 
