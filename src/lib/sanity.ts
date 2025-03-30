@@ -18,6 +18,12 @@ export async function getServices() {
     const query = `*[_type == "services"]{
       title,
       smallDescription,
+      image {
+            asset -> {
+                _id,
+                url
+            }
+        },
       "slug": slug.current
     }`;
   
@@ -26,7 +32,13 @@ export async function getServices() {
 
 export async function getAuthor() {
     const query = `*[_type == "author"] | order(_createdAt asc) {
-        name
+        name,
+        image {
+            asset -> {
+                _id,
+                url
+            }
+        }
     }`;
     return await client.fetch(query);
 }

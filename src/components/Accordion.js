@@ -11,7 +11,7 @@ export default function Accordion({ title, children }) {
         <div className="col-span-12">
           <div className="flex flex-col justify-between border-t-2 border-white">
             <div
-              className="text-4xl font-medium py-[25px] flex justify-between text-white transition duration-300"
+              className="text-xl md:text-4xl font-medium py-[25px] flex justify-between text-white transition duration-300"
               onClick={() => setIsOpen(!isOpen)}
             >
               {title}
@@ -21,7 +21,7 @@ export default function Accordion({ title, children }) {
             </div>
             {isOpen && (
               <div className="grid grid-cols-2">
-                <div className="col-span-1 col-start-2 my-[50px]">
+                <div className="col-span-2 md:col-span-1 md:col-start-2 my-[25px] md:my-[50px]">
                   <p className="text-base leading-[1.5] text-white">
                     {children}
                   </p>
