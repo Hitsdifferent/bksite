@@ -13,7 +13,7 @@ export default function Over() {
   return (
     <div className="container-fluid">
         
-        <section className="container mx-auto my-[100px] px-4 md:px-0">
+        <section className="container mx-auto my-[50px] xl:my-[100px] px-4 md:px-0">
             <div className="grid grid-cols-12 gap-4 ">
                 <div className="col-span-12 md:col-span-7">
                     <h2 className="text-4xl md:text-6xl leading-[1.2] font-semibold text-black">Wij zijn Beeldkameraden</h2>
@@ -53,13 +53,13 @@ export default function Over() {
                         <p div className="text-lg md:text-3xl font-medium leading-[1.5]">Ons bedrijf is geboren uit het plezier dat we halen uit techniek en creativiteit. Je krijgt bij ons dan ook de combinatie van een inhoudelijke vakidioot met liefde voor de camera en een communicatiespecialist die mensen weet te boeien. Soms flinke tegenpolen, maar beide altijd uit op het boeien van jouw kijker.</p>
                     </div>
                 </div>
-                <div className="grid grid-cols-12 gap-8">
+                <div className="grid grid-cols-12 gap-4 xl:gap-8">
                     <AuthorFetcher>
                     {(author) => (
                         author.length > 0 ? (
                         author.map((authorItem, index) => (
                             <div className="col-span-6 md:col-span-3" key={index} >
-                                <div className="relative bg-blue-600 h-[500px] rounded-sm overflow-hidden">
+                                <div className="relative bg-blue-600 h-[200px] xl:h-[500px] rounded-sm overflow-hidden">
                                     {authorItem.image && authorItem.image.asset?.url && (
                                         <img className="absolute inset-0 w-full h-full object-cover object-center"
                                             src={urlFor(authorItem.image).url()}
@@ -67,7 +67,7 @@ export default function Over() {
                                         />
                                     )}
                                 </div>
-                                <div className="text-white font-medium text-lg p-4 border-b-1">
+                                <div className="text-white font-medium text-sm xl:text-lg p-4 border-b-1">
                                     <p>{authorItem.name}</p>
                                 </div>
                             </div>

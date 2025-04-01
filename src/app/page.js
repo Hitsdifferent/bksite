@@ -22,7 +22,7 @@ export default function Home() {
     <>
     <div className="container-fluid">
 
-      <section className="container mx-auto my-[100px] px-4 xl:px-0">
+      <section className="container mx-auto my-[50px] xl:my-[100px] px-4 xl:px-0">
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 md:col-span-7 xl:col-span-7">
             <h1 className="text-4xl md:text-6xl xl:text-8xl leading-[1.2] font-semibold text-black">Jouw verhaal.<br/>Onze verbeelding.</h1>
@@ -60,17 +60,32 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-12 gap-4 mt-[100px]">
-          <div className="col-span-10 col-start-2 items-center">
-            <div className="h-auto md:h-[40px] w-1/2 md:w-full flex flex-col md:flex-row space-x-0 md:space-x-16 justify-center">
-              <NoorderpoortLogo className="w-auto h-full grayscale" />
-              <HanzeLogo className="w-auto h-full grayscale" />
-              <PatynaLogo className="w-auto h-full text-black grayscale" />
-              <DcterraLogo className="w-auto h-full text-black grayscale" />
-              <DrentheLogo className="w-auto h-full text-black grayscale" />              
+        <div className="hidden md:flex justify-center">
+          <div className="grid grid-cols-12 gap-4 mt-[100px]">
+            <div className="col-span-10 col-start-2 items-center">
+              <div className="h-auto md:h-[40px] w-1/2 md:w-full flex flex-col md:flex-row space-x-0 md:space-x-16 justify-center">
+                <NoorderpoortLogo className="w-auto h-full grayscale" />
+                <HanzeLogo className="w-auto h-full grayscale" />
+                <PatynaLogo className="w-auto h-full text-black grayscale" />
+                <DcterraLogo className="w-auto h-full text-black grayscale" />
+                <DrentheLogo className="w-auto h-full text-black grayscale" />              
+              </div>
             </div>
           </div>
-        </div>      
+        </div>
+
+        <div className="md:hidden flex">
+          <div className="grid grid-cols-3 gap-4 space-y-4 mt-[50px]">
+            
+                <NoorderpoortLogo className="w-4/5 flex mx-auto h-8 grayscale" />
+                <HanzeLogo className="w-4/5 flex mx-auto h-8 grayscale" />
+                <PatynaLogo className="w-4/5 flex mx-auto h-8 grayscale" />
+                <DcterraLogo className="w-4/5 flex mx-auto h-8 grayscale" />
+                <DrentheLogo className="w-4/5 flex mx-auto h-8 grayscale" />              
+             
+          </div>
+        </div>
+
       </section>
 
       <Beloftes/>

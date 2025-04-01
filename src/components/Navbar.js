@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
          <>
       {pathname === "/" && ( // Alleen tonen als de gebruiker op de homepagina is
-        <nav>
+        <nav className="flex z-50">
           <Slate className="w-full h-auto text-black" />
         </nav>
       )}
@@ -29,12 +29,16 @@ export default function Navbar() {
         <div className="container mx-auto flex justify-between items-center">
           {/* Desktop Logo */}
           <div className="hidden md:flex">
-            <Logo className="w-[70%] h-auto text-black" />
+            <Link href="/" onClick={handleLinkClick}>
+              <Logo className="w-[70%] h-auto text-black" />
+            </Link>
           </div>
 
           {/* Mobile Logo */}
           <div className="md:hidden flex z-50">
-            <LogoMobile className="w-[20%] h-auto text-black" />
+            <Link href="/" onClick={handleLinkClick} >
+              <LogoMobile className="w-[20%] h-auto text-black" />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -85,7 +89,7 @@ export default function Navbar() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: '-100%', opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="fixed top-0 left-0 w-full h-screen bg-white text-black md:hidden flex flex-col items-center justify-center gap-4 p-4"
+                className="fixed top-0 left-0 w-full h-screen bg-white text-black md:hidden flex flex-col items-center gap-4 pt-[150px] p-4"
               >
                 {[
                   { name: "Home", path: "/" },

@@ -16,7 +16,7 @@ export default function Diensten() {
   return (
     <>
     <div className="container-fluid">
-      <section className="container mx-auto my-[100px] px-4 md:px-0">
+      <section className="container mx-auto my-[50px] xl:my-[100px] px-4 md:px-0">
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 md:col-span-7">
             <h2 className="text-4xl md:text-6xl leading-[1.2] font-semibold text-black">Bij elke klus werken we als een echte beeldkameraad nauw met je samen.</h2>

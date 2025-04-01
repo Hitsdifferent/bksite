@@ -56,3 +56,46 @@ export async function getPromise() {
     }`;
     return await client.fetch(query);
 }
+
+export async function getProject() {
+    const query = `*[_type == "project"] {
+        title,
+        client,
+        "slug": slug.current,
+        category-> {
+            name
+        },
+        pageBuilder[]{
+            _type,
+            _key,
+            heading,
+            image {
+                asset->{url}
+            },
+            images[]{
+                asset->{url}
+            }
+        }
+    }`;
+    return await client.fetch(query);
+}
+
+export async function getSingle(slug) {
+    const query = `*[_type == "project" && slug.current == $slug][0] {
+        title,
+        client,
+        "slug": slug.current,
+        pageBuilder[]{
+            _type,
+            _key,
+            heading,
+            image {
+                asset->{url}
+            },
+            images[]{
+                asset->{url}
+            }
+        }
+    }`;
+    return await client.fetch(query, { slug }); // 👈 Geef de slug mee
+}

@@ -5,6 +5,9 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ['cdn.sanity.io'], // Voeg hier het domein van Sanity toe
+  },
   webpack(config) {
     // Voeg de SVG-loader toe voor .svg-bestanden
     config.module.rules.push({
