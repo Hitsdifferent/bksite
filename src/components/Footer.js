@@ -52,8 +52,11 @@ export default function Footer() {
                 </div>
             </div>
         </div>
-        <div className="container-fluid">
-            <Slate className="w-full h-auto text-white" />
+       
+        <div className="container-fluid bg-white">
+            <div className="container mx-auto bg-[#262626]">
+                <Slate className="w-full h-auto text-white max-h-[300px] scale-100" />
+            </div>
         </div>
     </footer>
     </>

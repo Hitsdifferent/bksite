@@ -60,31 +60,61 @@ export default function Werk() {
                             
                         </div>
                         <div className="container mx-auto my-[50px] xl:my-[100px] px-4 xl:px-0">              
-                            {/* Gallery afbeeldingen tonen */}
+                            {/* Gallery afbeeldingen en video's tonen */}
                             {project.pageBuilder
                             ?.filter((section) => section._type === "gallery")
                             .map((section) => (
                                 <div key={section._key} className="mt-6">
-                                    {section.images?.length > 0 && (
-                                        <div className="flex w-full">
-                                            <div className="flex flex-col md:flex-row justify-stretch gap-4 w-full">
-                                                {section.images.map((img) => (
-                                                    <div key={img.asset._id || img.asset.url} className="w-full">
-                                                        <div className="relative w-full aspect-video overflow-hidden">
-                                                            <Image
-                                                                src={img.asset.url}
-                                                                alt="Gallery image"
-                                                                fill
-                                                                className="object-cover"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                ))}
+                                {section.images?.length > 0 && (
+                                    <div className="flex w-full">
+                                    <div className="flex flex-col md:flex-row justify-stretch gap-4 w-full">
+                                        {section.images.map((item, index) => (
+                                        <div key={item.asset?._id || item.asset?.url || index} className="w-full">
+                                            <div className="relative w-full aspect-video overflow-hidden">
+                                            {item._type === "image" && item.asset?.url ? (
+                                                <Image
+                                                src={item.asset.url}
+                                                alt="Gallery image"
+                                                fill
+                                                className="object-cover"
+                                                />
+                                            ) : item._type === "video" ? (
+                                                item.videoFile?.asset?.url ? (
+                                                <video
+                                                    autoPlay
+                                                    muted
+                                                    loop
+                                                    playsInline
+                                                    className="w-full h-full object-cover"
+                                                >
+                                                    <source src={item.videoFile.asset.url} type="video/mp4" />
+                                                    Je browser ondersteunt dit videobestand niet.
+                                                </video>
+                                                ) : item.videoUrl ? (
+                                                <iframe
+                                                    key={item.videoUrl} // unieke key voor video URL
+                                                    width="100%"
+                                                    height="100%"
+                                                    src={`${item.videoUrl}?autoplay=1&mute=1&loop=1`}
+                                                    frameBorder="0"
+                                                    allow="autoplay; encrypted-media; picture-in-picture"
+                                                    allowFullScreen
+                                                    className="w-full h-full"
+                                                />
+                                                ) : (
+                                                <p>Video niet beschikbaar</p>
+                                                )
+                                            ) : null}
                                             </div>
                                         </div>
-                                    )}
+                                        ))}
+                                    </div>
+                                    </div>
+                                )}
                                 </div>
                             ))}
+
+
                         </div>
                     </div>
                 )}

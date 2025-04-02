@@ -133,7 +133,7 @@ export default function Home() {
             <div className="col-span-12 xl:col-span-6 xl:col-start-7 grid pr-8 text-white">
               <div className="flex flex-col space-y-8">
                 {/* <h1 className="text-3xl leading-[1.2] font-semibold">Over ons</h1> */}
-                <p className="text-lg md:text-2xl leading-[1.5] font-medium">Al drie jaar staan we met passie achter de lens voor elk verhaal. Wat met een opdracht tijdens een studieproject begon, is uitgegroeid tot een videobedrijf met tientallen opdrachtgevers. Het leukste aan ons werk? Iedereen heeft weer een ander verhaal.</p>
+                <p className="text-lg md:text-2xl leading-[1.5] font-medium">Al jaren lang staan we met passie achter de lens voor elk verhaal. Wat met een opdracht tijdens een studieproject begon, is uitgegroeid tot een videobedrijf met tientallen opdrachtgevers. Het leukste aan ons werk? Iedereen heeft weer een ander verhaal.</p>
               </div>
               <div className="flex flex-row mt-16 md:mt-0">
                 <Link href="/overons">

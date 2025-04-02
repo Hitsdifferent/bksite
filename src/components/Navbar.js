@@ -21,8 +21,10 @@ export default function Navbar() {
   return (
          <>
       {pathname === "/" && ( // Alleen tonen als de gebruiker op de homepagina is
-        <nav className="flex z-50">
-          <Slate className="w-full h-auto text-black" />
+        <nav className="flex z-50 bg-black">
+          <div className="container mx-auto bg-white">
+            <Slate className="w-full h-auto text-black max-h-[300px] scale-100" />
+          </div>
         </nav>
       )}
       <nav className="bg-white p-4 text-black border-b-2 sticky top-0 border-[#D5D5D5] z-10">

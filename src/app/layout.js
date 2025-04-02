@@ -21,6 +21,14 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata = {
   title: "Beeldkameraden",
   description: "Videobedrijf uit Groningen",
+  icons: {
+    icon: [
+        {
+            url: "/bkfavicon.svg", // /public path
+            href: "/bkfavicon.svg", // /public path
+        },
+    ],
+},
 };
 
 export default function RootLayout({ children }) {

@@ -97,7 +97,9 @@ export async function getSingle(slug) {
                 asset->{url}
             },
             images[]{
-                asset->{url}
+                _type,
+                _type == "image" => { asset->{url} },
+                _type == "video" => { videoFile{asset->{url}}, videoUrl }
             }
         }
     }`;
