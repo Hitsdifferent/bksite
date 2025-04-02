@@ -8,18 +8,18 @@ export default function Footer() {
   return (
     <>
     <footer className="container-fluid bg-[#262626]">
-        <div className="container mx-auto pt-[50px] md:pt-[100px] pb-[50px] px-4 md:px-0">
+        <div className="container mx-auto pt-[50px] xl:pt-[100px] pb-[50px] px-4 xl:px-0">
             <div className="grid grid-cols-12 gap-4 space-y-8 mb-[100px] md:mb-[200px]">
                 <div className="col-span-12 md:col-span-6">
                     <h1 className="text-2xl md:text-5xl leading-[1.2] font-medium text-white">Jouw verhaal.<br/>Onze verbeelding.</h1>
                 </div>
-                <div className="col-span-6 md:col-span-3 space-y-4 md:space-y-8">
-                    <h1 className="text-md md:text-xl font-medium text-white">Locatie</h1>
-                    <p className="text-sm md:text-base leading-[1.5] text-white">Papiermolenlaan 3-1 <br/>9721GR Groningen</p>
+                <div className="col-span-6 md:col-span-3 space-y-2">
+                    <h1 className="text-base md:text-lg text-neutral-400">Locatie</h1>
+                    <p className="text-sm md:text-base  leading-[1.5] text-white">Papiermolenlaan 3-1 <br/>9721GR Groningen</p>
                 </div>
-                <div className="col-span-6 md:col-span-3 space-y-4 md:space-y-8">
-                    <h1 className="text-md md:text-xl font-medium text-white">Socials</h1>
-                    <ul className="space-y-0 md:space-y-4">
+                <div className="col-span-6 md:col-span-3 space-y-2">
+                    <h1 className="text-base md:text-lg text-neutral-400">Socials</h1>
+                    <ul className="">
                         <li>
                             <a
                                 href="https://www.instagram.com/beeldkameraden"

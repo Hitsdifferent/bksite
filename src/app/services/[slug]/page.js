@@ -4,8 +4,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation"; // Haal de slug op uit de URL
 import { client } from "@/lib/sanity"; // Sanity client
 
+import Breadcrumb from '@/components/Breadcrumb';
 import Method from "@/components/Method";
 import Belofteswhite from "@/components/Belofteswhite";
+import Cta from "@/components/Cta";
+
+
 import Link from "next/link";
 
 async function getService(slug) {
@@ -45,14 +49,15 @@ export default function DienstenDetail() {
     return (
         <>
         <div className="container-fluid">
-            <section className="container mx-auto px-4 my-[50px] xl:my-[100px] md:px-0">
+            <section className="container mx-auto px-4 my-[50px] xl:my-[100px] xl:px-0">
+              <Breadcrumb />
                 <div className="grid grid-cols-12 gap-4">
-                    <div className="col-span-12 md:col-span-7">
-                        <h2 className="text-4xl md:text-6xl leading-[1.2] font-semibold text-black">{services.title}</h2>
+                    <div className="col-span-12 md:col-span-6 xl:col-span-7">
+                        <h2 className="text-4xl xl:text-6xl leading-[1.2] font-semibold text-black">{services.title}</h2>
                     </div>
-                    <div className="col-span-12 md:col-start-8 md:col-span-5">
+                    <div className="col-span-12 md:col-span-6 md:col-start-7 xl:col-span-5 xl:col-start-8">
                         {services?.texts?.map((t, i) => (
-                            <p className="mt-4 font-medium text-base md:text-lg" key={i}>{t}</p>
+                            <p className="mt-4 font-medium text-base xl:text-lg" key={i}>{t}</p>
                         ))}
                     </div>
                 </div>
@@ -70,21 +75,13 @@ export default function DienstenDetail() {
                     </div>
                 </div>
             </section>
+
             <Method />
+
             <Belofteswhite />
-            <section className="container mx-auto pt-[50px] md:pt-[100px] pb-[100px] md:pb-[250px] px-4 md:px-0">
-              <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-12 md:col-span-7">
-                  <h1 className="text-4xl md:text-8xl leading-[1.2] font-semibold text-black">Klaar om aan de slag te gaan?</h1>
-                </div>
-                <div className="col-span-12 md:col-span-4 md:col-start-9 grid content-between">
-                  <p className="mt-4 font-medium text-base md:text-lg">Ben je klaar om jouw product, organisatie of evenement meer onder de aandacht te brengen met een video? Tijdens een kennismakingskoffie vertellen we graag hoe we jouw verhaal tot de verbeelding laten spreken.</p>
-                  <Link href="/services">
-                    <div className="text-white font-medium uppercase text-sm md:text-lg mt-18 md:mt-0"><span className="px-[30px] py-[10px] bg-[#262626]">hallo@beeldkameraden.nl</span></div>
-                  </Link>
-                </div>
-              </div>
-            </section>
+
+            <Cta />
+
         </div>
       </>
     );

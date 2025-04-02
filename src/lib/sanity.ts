@@ -85,6 +85,10 @@ export async function getSingle(slug) {
         title,
         client,
         "slug": slug.current,
+        category-> {
+            name
+        },
+        Description,
         pageBuilder[]{
             _type,
             _key,

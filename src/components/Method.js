@@ -10,8 +10,8 @@ export default function Method() {
   };
 
   return (
-    <section className="container-fluid mx-auto bg-[#262626] py-[100px] mt-[50px]">
-      <div className="container mx-auto px-4 md:px-0">
+    <section className="container-fluid mx-auto bg-[#262626] py-[50px] xl:py-[100px] mt-[50px]">
+      <div className="container mx-auto px-4 xl:px-0">
         <div className="grid grid-cols-12 gap-4 text-white">
           <div className="col-span-12">
             <h2 className="text-lg md:text-3xl font-medium">Hoe we te werk gaan</h2>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from 'next/image'
 import { useRouter } from "next/navigation";
 
+import Breadcrumb from '@/components/Breadcrumb';
 
 import ProjectFetcher from '@/components/ProjectsFetcher';
 import { urlFor } from '@/lib/sanity';
@@ -13,7 +14,8 @@ export default function Werk() {
 
   return (
       <div className="container-fluid">
-        <section className="container mx-auto my-[50px] xl:my-[100px] px-4 md:px-0">
+        <section className="container mx-auto my-[50px] xl:my-[100px] px-4 xl:px-0">
+          <Breadcrumb />
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-12 md:col-span-7">
               <h2 className="text-4xl md:text-6xl leading-[1.2] font-semibold text-black">Ons werk</h2>
@@ -24,37 +26,46 @@ export default function Werk() {
           </div>
         </section>
       
-        <div className="container mx-auto my-[50px] xl:my-[100px] px-4 md:px-0">
+        <div className="container mx-auto my-[50px] xl:my-[100px] px-4 xl:px-0">
           <div className="">
             <ProjectFetcher>
                 {(projects) => (
                   <div className="grid grid-cols-12 gap-4">
                     {projects.map((project, index) => (
-                      <Link className="col-span-12 border-t-2 border-[#D5D5D5] pt-5 cursor-pointer" key={index} href={`/werk/${project.slug}`} passHref>
-                        <div className="flex flex-row gap-8">
-                          <div className="w-1/2">
-                            {project.pageBuilder?.map((section) => (
-                              <div className="flex" key={section._key}>
-                                {section._type === "hero" && section.image?.asset?.url && (                                
-                                    <img
-                                      src={urlFor(section.image.asset.url).url()}
-                                      alt={section.heading}
-                                      className="w-full h-auto aspect-video object-cover object-center rounded-md"
-                                    />                                                              
-                                )}
-                              </div>                            
+                      <Link className="col-span-12 md:col-span-6 cursor-pointer" key={index} href={`/werk/${project.slug}`} passHref>
+                        <div className="flex flex-col gap-4 xl:gap-4">
+                          
+                          {project.pageBuilder
+                            ?.filter((section) => section._type === "hero")
+                            .map((section) => (
+                                <div key={section._key} className="">
+                                    {section.image?.asset?.url && (
+                                        <div className="relative w-full aspect-video overflow-hidden">
+                                            <Image
+                                                src={section.image.asset.url}
+                                                alt={section.heading || "Hero image"}
+                                                fill
+                                                className="object-cover object-center transition duration-300 ease-in-out hover:scale-102"
+                                            />
+                                        </div>
+                                    )}
+                                </div>
                             ))}
-                          </div>
-                          <div className="w-1/2 grid content-between py-6">
+                         
+                          <div className="grid content-between py-2 xl:py-6">
                             <div className="space-y-4">
-                              <h1 className="text-4xl font-medium">{project.title}</h1>
-                              <p className="text-xl font-medium">{project.client}</p>
+                              <h1 className="text-2xl xl:text-4xl font-medium">{project.title}</h1>
+                              <div className="flex flex-row">
+                                <p className="text-base xl:text-lg font-medium">{project.client}</p>
+                                <span className="px-2">-</span>
+                                <p className="text-base xl:text-lg font-medium">{project.category?.name}</p>
+                              </div>
                             </div>
-                            <div className="space-y-4">
+                            {/* <div className="space-y-4">
                               <div className="font-medium uppercase text-sm md:text-md mt-16 xl:mt-0 group">
-                                <span className="px-[30px] py-[10px] text-black border-2 border-[#262626] transition duration-300 ease-in-out bg-white">{project.category?.name}</span>
+                                <span className="px-[30px] py-[10px] text-black border-2 border-[#262626] transition duration-300 ease-in-out bg-white"></span>
                               </div>                             
-                            </div>
+                            </div> */}
                           </div>                               
                         </div>               
                     </Link>
