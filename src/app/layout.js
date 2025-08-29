@@ -21,7 +21,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata = {
   title: "Beeldkameraden",
   description: "Videobedrijf uit Groningen",
-  icons: "/bkfavicon.svg", 
+  icons: [
+    { rel: "icon", url: "/bkfavicon.ico" },      // werkt in alle browsers
+    { rel: "icon", type: "image/svg+xml", url: "/bkfavicon.svg" }, // moderne browsers
+    { rel: "apple-touch-icon", url: "/apple-touch-icon.png" },     // iOS Safari
+  ],
 };
 
 export default function RootLayout({ children }) {
