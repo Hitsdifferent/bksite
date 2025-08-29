@@ -1,6 +1,6 @@
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import Head from 'next/head';
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -21,11 +21,6 @@ const ibmPlexMono = IBM_Plex_Mono({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <title>Beeldkameraden</title>
-        <meta name="description" content="Videobedrijf uit Groningen" />
-        <link rel="icon" href="/bkfavicon.svg" />
-      </Head>
       <body className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} antialiased`} >
         <Navbar/>
         {children}
