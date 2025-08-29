@@ -18,6 +18,12 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "700"],
 });
 
+export const metadata = {
+  title: "Beeldkameraden",
+  description: "Videobedrijf uit Groningen",
+  icons: "/bkfavicon.svg", 
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
