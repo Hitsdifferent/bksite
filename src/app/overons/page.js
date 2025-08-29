@@ -112,6 +112,7 @@ export default function Over() {
                     <AnimatedBlock> 
                         <p className="text-lg md:text-xl xl:text-2xl font-medium leading-[1.5]">We voeren de regie vanuit ons kantoor in de Papiermolen (Groningen). Een gezellige omgeving met andere creatieven die steeds weer inspireert. En dat is ook precies waar we van houden: serieus over het werk, ook lekker makkelijk in contact.</p>
                     </AnimatedBlock>
+                    
                 </div>
             </div>
             </div>

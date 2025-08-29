@@ -21,8 +21,10 @@ export default function Cta() {
             <AnimatedBlock>
               <p className="font-medium text-base md:text-lg">Ben je klaar om jouw product, organisatie of evenement meer onder de aandacht te brengen met een video? Tijdens een kennismakingskoffie vertellen we graag hoe we jouw verhaal tot de verbeelding laten spreken.</p>
             </AnimatedBlock>
-            <Link href="/services">
-            <div className="text-white font-medium uppercase text-sm md:text-lg mt-18 md:mt-0"><span className="px-[30px] py-[10px] bg-[#262626]">hallo@beeldkameraden.nl</span></div>
+            <Link href="/contact">
+              <div className="text-white font-medium uppercase text-sm mt-18 md:mt-0">
+                <span className="px-[30px] py-[10px] bg-[#262626]">Neem contact op</span>
+              </div>
             </Link>
         </div>
         </div>
