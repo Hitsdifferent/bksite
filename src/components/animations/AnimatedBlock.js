@@ -20,7 +20,7 @@ export default function AnimatedBlock({ children }) {
         duration: 0.8,
         ease: 'power2.out',
         scrollTrigger: {
-        markers: true,
+        markers: false,
           trigger: scope.current,
           start: 'top 80%',
           toggleActions: 'play none none reverse',
