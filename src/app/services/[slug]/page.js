@@ -4,6 +4,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation"; // Haal de slug op uit de URL
 import { client } from "@/lib/sanity"; // Sanity client
 
+import AnimatedHeaderblock from "@/components/animations/AnimatedHeaderblock";
+import AnimatedHeadertitle from "@/components/animations/AnimatedHeadertitle";
+import AnimatedTitles from "@/components/animations/AnimatedTitles";
+import AnimatedBlock from "@/components/animations/AnimatedBlock";
+
 import Breadcrumb from '@/components/Breadcrumb';
 import Method from "@/components/Method";
 import Belofteswhite from "@/components/Belofteswhite";
@@ -53,11 +58,15 @@ export default function DienstenDetail() {
               <Breadcrumb />
                 <div className="grid grid-cols-12 gap-4">
                     <div className="col-span-12 md:col-span-6 xl:col-span-7">
+                      <AnimatedHeadertitle>
                         <h2 className="text-4xl xl:text-6xl leading-[1.2] font-semibold text-black">{services.title}</h2>
+                      </AnimatedHeadertitle>
                     </div>
                     <div className="col-span-12 md:col-span-6 md:col-start-7 xl:col-span-5 xl:col-start-8">
                         {services?.texts?.map((t, i) => (
-                            <p className="mt-4 font-medium text-base xl:text-lg" key={i}>{t}</p>
+                          <AnimatedHeaderblock key={i}>
+                            <p className="mt-4 font-medium text-base xl:text-lg">{t}</p>
+                          </AnimatedHeaderblock>
                         ))}
                     </div>
                 </div>
