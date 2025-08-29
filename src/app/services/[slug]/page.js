@@ -62,7 +62,7 @@ export default function DienstenDetail() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-12 gap-4 mt-[100px]">
+                {/* <div className="grid grid-cols-12 gap-4 mt-[100px]">
                     <div className="col-span-12 md:col-span-6">
                         <div className="bg-blue-600 aspect-video rounded-2xl">
 
@@ -73,7 +73,7 @@ export default function DienstenDetail() {
 
                         </div>
                     </div>
-                </div>
+                </div> */}
             </section>
 
             <Method />

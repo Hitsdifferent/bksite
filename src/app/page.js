@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import AnimatedHeaderblock from "@/components/animations/AnimatedHeaderblock";
+import AnimatedHeadertitle from "@/components/animations/AnimatedHeadertitle";
+import AnimatedTitles from "@/components/animations/AnimatedTitles";
+import AnimatedBlock from "@/components/animations/AnimatedBlock";
+
 import Beloftes from "@/components/Beloftes";
 import ServiceFetcher from '@/components/ServiceFetcher';
 import AuthorFetcher from '@/components/AuthorFetcher';
@@ -26,10 +31,13 @@ export default function Home() {
       <section className="container mx-auto my-[50px] xl:my-[100px] px-4 xl:px-0">
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-12 md:col-span-7 xl:col-span-7">
-            <h1 className="text-4xl md:text-6xl xl:text-8xl leading-[1.2] font-semibold text-black">Jouw verhaal.<br/>Onze verbeelding.</h1>
+            <AnimatedHeadertitle>
+              <h1 className="text-4xl md:text-6xl xl:text-8xl leading-[1.2] font-semibold text-black">Jouw verhaal.{'\n'}Onze verbeelding.</h1>
+            </AnimatedHeadertitle>
           </div>
           <div className="col-span-12 md:col-span-5 md:col-start-8  xl:col-span-4 xl:col-start-9 grid content-between">
-            <p className="mt-4 font-medium text-base md:text-lg">Met oog voor detail maken wij professionele video&apos;s voor overheidsinstanties, commerciële organisaties en particulieren. Bij elke klus werken we als een echte beeldkameraad nauw met je samen. </p>
+            <AnimatedHeaderblock>
+              <p className="mt-4 font-medium text-base md:text-lg title-animation">Met oog voor detail maken wij professionele video&apos;s voor overheidsinstanties, commerciële organisaties en particulieren. Bij elke klus werken we als een echte beeldkameraad nauw met je samen.</p>          </AnimatedHeaderblock>
             <Link href="/services">
               <div className="font-medium uppercase text-sm md:text-md mt-16 xl:mt-0 group">
                 <span className="px-[30px] py-[10px] text-white bg-[#262626] border-2 border-[#262626] transition duration-300 ease-in-out group-hover:text-black group-hover:bg-white group-hover:border-2">Hoe mogen we jouw in beeld brengen?</span>
@@ -37,43 +45,46 @@ export default function Home() {
             </Link>
           </div>
         </div>
-
-        <div className="grid grid-cols-12 gap-4 mt-[50px] md:mt-[100px]">
-          <div className="col-span-12 md:col-span-6">
-            <div className="relative aspect-video rounded-2xl overflow-hidden">
-              <Image 
-                src="/images/Beeldkameraden_220325.jpg" 
-                alt="Beeldkameraden ijshal Kardinge" 
-                fill
-                className="object-cover object-center"
-              />
+        <AnimatedHeaderblock>
+          <div className="grid grid-cols-12 gap-4 mt-[50px] md:mt-[100px] block-animation">
+            <div className="col-span-12 md:col-span-6">
+              <div className="relative aspect-video rounded-2xl overflow-hidden">
+                <Image 
+                  src="/images/Beeldkameraden_250321.jpg" 
+                  alt="Beeldkameraden ijshal Kardinge" 
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-span-12 md:col-span-6">
-          <div className="relative aspect-video rounded-2xl overflow-hidden">
-              <Image 
-                src="/images/Beeldkameraden_220325-2.jpg" 
-                alt="Beeldkameraden ijshal Kardinge Mart" 
-                fill
-                className="object-cover object-center"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="hidden md:flex justify-center">
-          <div className="grid grid-cols-12 gap-4 mt-[50px] xl:mt-[100px]">
-            <div className="col-span-10 col-start-2 items-center">
-              <div className="h-auto md:h-[40px] w-1/2 md:w-full flex flex-col md:flex-row space-x-0 md:space-x-16 justify-center">
-                <NoorderpoortLogo className="w-auto h-full grayscale" />
-                <HanzeLogo className="w-auto h-full grayscale" />
-                <PatynaLogo className="w-auto h-full text-black grayscale" />
-                <DcterraLogo className="w-auto h-full text-black grayscale" />
-                <DrentheLogo className="w-auto h-full text-black grayscale" />              
+            <div className="col-span-12 md:col-span-6">
+              <div className="relative aspect-video rounded-2xl overflow-hidden">
+                <Image 
+                  src="/images/Beeldkameraden_241125.jpg" 
+                  alt="Beeldkameraden KIC-IT podcast" 
+                  fill
+                  className="object-cover object-center"
+                />
               </div>
             </div>
           </div>
-        </div>
+        </AnimatedHeaderblock>
+
+        <AnimatedBlock>
+          <div className="hidden md:flex justify-center block-animation">
+            <div className="grid grid-cols-12 gap-4 mt-[50px] xl:mt-[100px]">
+              <div className="col-span-10 col-start-2 items-center">
+                <div className="h-auto md:h-[40px] w-1/2 md:w-full flex flex-col md:flex-row space-x-0 md:space-x-16 justify-center">
+                  <NoorderpoortLogo className="w-auto h-full grayscale" />
+                  <HanzeLogo className="w-auto h-full grayscale" />
+                  <PatynaLogo className="w-auto h-full text-black grayscale" />
+                  <DcterraLogo className="w-auto h-full text-black grayscale" />
+                  <DrentheLogo className="w-auto h-full text-black grayscale" />              
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedBlock>
 
         <div className="md:hidden flex">
           <div className="grid grid-cols-3 gap-4 space-y-4 mt-[50px]">
@@ -86,16 +97,19 @@ export default function Home() {
              
           </div>
         </div>
-
       </section>
 
       <Beloftes/>
 
+      
       <section className="container mx-auto px-4 xl:px-0">
         <div className="grid grid-cols-12 gap-4 my-[50px] xl:my-[100px]">
           <div className="col-span-12 md:col-span-6 text-black space-y-8 ">
-            <p className="text-lg md:text-2xl xl:text-3xl leading-[1.5] font-medium">Bij elke klus werken we als een echte beeldkameraad nauw met je samen. Hoe mogen we jou in beeld brengen? Je kan Beeldkameraden gebruiken bij:</p>
-            <div className="mt-[50px]">          
+            <AnimatedBlock>
+              <p className="text-lg md:text-2xl xl:text-3xl leading-[1.5] font-medium">Bij elke klus werken we als een echte beeldkameraad nauw met je samen. Hoe mogen we jou in beeld brengen? Je kan Beeldkameraden gebruiken bij:</p>
+            </AnimatedBlock>
+            <AnimatedBlock>
+            <div className="mt-[50px]">
               <ul>
                 <ServiceFetcher>
                   {(services) => (
@@ -115,25 +129,45 @@ export default function Home() {
                 </ServiceFetcher>
               </ul>
             </div>
+            </AnimatedBlock>
           </div>
-          <div className="col-span-12 md:col-span-5 md:col-start-8">
-            <div className="bg-blue-600 aspect-video rounded-lg">
-            </div>
+          <div className="col-span-12 md:col-span-5 md:col-start-8">    
+            <AnimatedBlock>        
+            <div className="relative aspect-video rounded-2xl overflow-hidden">
+              <Image
+                src="/images/Beeldkameraden_Ukrant_BTS_30 april 2025.jpg"
+                alt="Beeldkameraden KIC-IT podcast"
+                fill
+                className="object-cover object-center"
+              />              
+            </div>  
+            </AnimatedBlock>         
           </div>
         </div>
       </section>
+      
 
       <section className="container-fluid bg-[#262626] py-[50px] md:py-[100px] px-4 xl:px-0">
         <div className="container mx-auto">
           <div className="grid grid-cols-12 gap-4 space-y-8">
             <div className="col-span-12 xl:col-span-5">
-              <div className="bg-blue-600 aspect-video rounded-lg">
-              </div>
+              <AnimatedBlock>
+                <div className="relative aspect-video rounded-2xl overflow-hidden">
+                  <Image 
+                    src="/images/Beeldkameraden_Portraits_26 mei 2025-5.jpg" 
+                    alt="Beeldkameraden KIC-IT podcast" 
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+              </AnimatedBlock>
             </div>
             <div className="col-span-12 xl:col-span-6 xl:col-start-7 grid pr-8 text-white">
               <div className="flex flex-col space-y-8">
                 {/* <h1 className="text-3xl leading-[1.2] font-semibold">Over ons</h1> */}
-                <p className="text-lg md:text-2xl leading-[1.5] font-medium">Al jaren lang staan we met passie achter de lens voor elk verhaal. Wat met een opdracht tijdens een studieproject begon, is uitgegroeid tot een videobedrijf met tientallen opdrachtgevers. Het leukste aan ons werk? Iedereen heeft weer een ander verhaal.</p>
+                <AnimatedBlock>
+                  <p className="text-lg md:text-2xl leading-[1.5] font-medium">Al jaren lang staan we met passie achter de lens voor elk verhaal. Wat met een opdracht tijdens een studieproject begon, is uitgegroeid tot een videobedrijf met tientallen opdrachtgevers. Het leukste aan ons werk? Iedereen heeft weer een ander verhaal.</p>
+                </AnimatedBlock>
               </div>
               <div className="flex flex-row mt-16 md:mt-0">
                 <Link href="/overons">

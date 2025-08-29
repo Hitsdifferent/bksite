@@ -1,7 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+
 import Link from "next/link";
 import Image from 'next/image'
+
+
+import { useState, useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimatedHeadertitle from "@/components/animations/AnimatedHeadertitle";
+import AnimatedHeaderblock from "@/components/animations/AnimatedHeaderblock";
+
+
 import { useRouter } from "next/navigation";
 
 import Breadcrumb from '@/components/Breadcrumb';
@@ -14,6 +22,14 @@ import RightUp from "@/assets/icons/ArrowRightUp.svg";
 
 export default function Diensten() {
   const router = useRouter();
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    if (services.length > 0) {
+      ScrollTrigger.refresh();
+    }
+  }, [services]);
+
 
   return (
     <>
@@ -22,11 +38,15 @@ export default function Diensten() {
       <section className="container mx-auto my-[50px] xl:my-[100px] px-4 xl:px-0">
         <Breadcrumb />
         <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-12 md:col-span-7">            
-            <h2 className="text-4xl xl:text-6xl leading-[1.2] font-semibold text-black">Bij elke klus werken we als een echte beeldkameraad nauw met je samen.</h2>
+          <div className="col-span-12 md:col-span-7"> 
+            <AnimatedHeadertitle>
+              <h2 className="text-4xl xl:text-6xl leading-[1.2] font-semibold text-black">Bij elke klus werken we als een echte beeldkameraad nauw met je samen.</h2>
+            </AnimatedHeadertitle>
           </div>
           <div className="col-span-12 md:col-start-9 md:col-span-4">
-            <p className="mt-4 font-medium text-base xl:text-lg">Hoe mogen we jou in beeld brengen? Je kan Beeldkameraden gebruiken bij:</p>
+            <AnimatedHeaderblock>
+              <p className="mt-4 font-medium text-base xl:text-lg">Hoe mogen we jou in beeld brengen? Je kan Beeldkameraden gebruiken bij:</p>
+            </AnimatedHeaderblock>
           </div>
         </div>
       </section>
@@ -36,8 +56,11 @@ export default function Diensten() {
           <div className="grid grid-cols-12 gap-4 xl:gap-8 text-white">
                         
               <ServiceFetcher>
-                {(services) => (
-                  services.map((service) => (
+                {(fetchedServices) => {
+                  if (services !== fetchedServices) setServices(fetchedServices);
+
+                  return fetchedServices.length > 0 ? (
+                    services.map((service) => (
                     <div className="col-span-12 md:col-span-6 xl:col-span-4" key={service.slug}>                                          
                       <div className="flex flex-col py-[25px] mb-[25px] xl:mb-[50px] border-white group">
                         <div className="flex flex-col space-y-4 xl:space-y-8">
@@ -68,8 +91,11 @@ export default function Diensten() {
                       </div>
                     </div>                   
                   ))
-                )}
-              </ServiceFetcher>              
+                ) : (
+                  <p>Laden...</p>
+                );
+              }}
+            </ServiceFetcher>             
             
           </div>
         </div>
