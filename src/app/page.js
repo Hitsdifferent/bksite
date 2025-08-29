@@ -16,7 +16,6 @@ import Cta from "@/components/Cta";
 
 import NoorderpoortLogo from "@/assets/logos/Noorderpoort.svg";
 import HanzeLogo from "@/assets/logos/Hanze.svg";
-import PatynaLogo from "@/assets/logos/patyna.svg";
 import DcterraLogo from "@/assets/logos/dcterra.svg";
 import DrentheLogo from "@/assets/logos/drenthecollege.svg";
 
@@ -77,7 +76,6 @@ export default function Home() {
                 <div className="h-auto md:h-[40px] w-1/2 md:w-full flex flex-col md:flex-row space-x-0 md:space-x-16 justify-center">
                   <NoorderpoortLogo className="w-auto h-full grayscale" />
                   <HanzeLogo className="w-auto h-full grayscale" />
-                  <PatynaLogo className="w-auto h-full text-black grayscale" />
                   <DcterraLogo className="w-auto h-full text-black grayscale" />
                   <DrentheLogo className="w-auto h-full text-black grayscale" />              
                 </div>
@@ -91,7 +89,6 @@ export default function Home() {
             
                 <NoorderpoortLogo className="w-4/5 flex mx-auto h-8 grayscale" />
                 <HanzeLogo className="w-4/5 flex mx-auto h-8 grayscale" />
-                <PatynaLogo className="w-4/5 flex mx-auto h-8 grayscale" />
                 <DcterraLogo className="w-4/5 flex mx-auto h-8 grayscale" />
                 <DrentheLogo className="w-4/5 flex mx-auto h-8 grayscale" />              
              
