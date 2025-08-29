@@ -18,22 +18,14 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "700"],
 });
 
-export const metadata = {
-  title: "Beeldkameraden",
-  description: "Videobedrijf uit Groningen",
-  icons: {
-    icon: [
-        {
-            url: "/bkfavicon.svg", // /public path
-            href: "/bkfavicon.svg", // /public path
-        },
-    ],
-},
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <title>Beeldkameraden</title>
+        <meta name="description" content="Videobedrijf uit Groningen" />
+        <link rel="icon" href="/bkfavicon.svg" />
+      </Head>
       <body className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} antialiased`} >
         <Navbar/>
         {children}
